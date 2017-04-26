@@ -1,0 +1,267 @@
+\documentclass[letterpaper,11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb, setspace, esint}
+\usepackage{algorithm}
+\usepackage{graphicx}
+\usepackage{placeins}
+\usepackage{algpseudocode}
+\usepackage{tikz}
+\allowdisplaybreaks[1]
+
+\makeatletter
+\newcommand\blx@unitmark{23sp}
+\makeatother
+
+\newcommand{\LOne}[1]{ \lvert \lvert #1 \rvert \rvert_1 }
+\newcommand{\LTwoSqr}[1]{ \lvert \lvert #1 \rvert \rvert_2^2 }
+\newcommand{\LInf}[1]{ \lvert \lvert #1 \rvert \rvert_{\infty} }
+
+\newcommand\tikzmark[1]{%
+  \tikz[remember picture,overlay]\node[inner sep=2pt] (#1) {};}
+\newcommand\DrawBox[3][]{%
+  \tikz[remember picture,overlay]\draw[#1] ([xshift=-3.5em,yshift=7pt]#2.north west) rectangle (#3.south east);}
+
+\algnewcommand\algorithmicinput{\textbf{Input:}}
+\algnewcommand\Input{\item[\algorithmicinput]}
+
+\algnewcommand\algorithmicoutput{\textbf{Output:}}
+\algnewcommand\Output{\item[\algorithmicoutput]}
+
+\algdef{SE}[DOWHILE]{Do}{doWhile}{\algorithmicdo}[1]{\algorithmicwhile\ #1}%
+
+\begin{document}
+
+\FloatBarrier
+\begin{algorithm}[!htbp]
+  \caption{DG ( Duality Gap ) }
+  \begin{algorithmic}[1]
+  \Statex
+  \Input\tikzmark{a}
+  \Statex $X \in \mathbb{R}^{n \times p} $ \Comment{ The design matrix }
+  \Statex $Y \in \mathbb{R}^n$  \Comment{ The vector of predictors }
+  \Statex $\beta \in \mathbb{R}^n$  \Comment{ Current $\beta$ }
+  \Statex $\lambda \in \mathbb{R}$  \Comment{ Grid element }\tikzmark{b}
+    \State $\epsilon \gets X \beta - Y$
+    \State $f_{\beta} \gets \LTwoSqr{ \epsilon } + \lambda \LOne{ \beta }$\Comment{Primal Objective function}
+    \State $\alpha \gets \frac{\lambda}{ \LInf{ 2 X^T \epsilon } }$
+    \State $\alpha_0$ $\gets Y^T \epsilon$
+    \State $\mathcal{S} \gets \min \{ \max \{ \alpha, \alpha_0 \}, - \alpha \}$\Comment{Dual Point}
+    \State $\widetilde{\nu} \gets \frac{-2 \mathcal{S} }{ \lambda } \epsilon + \frac{2}{\lambda} Y$
+    \State $d_{\nu} \gets \frac{1}{4} \lambda^2 \LTwoSqr{ \widetilde{\nu} } - \LTwoSqr{ Y }$\Comment{Dual Objective function}
+  \end{algorithmic}
+  \Return $f_{\beta} + d_{\nu}$
+\end{algorithm}
+\FloatBarrier
+
+\FloatBarrier
+\begin{algorithm}[!htbp]
+  \caption{DGT ( Duality Gap Target ) }
+  \begin{algorithmic}[1]
+    \Statex
+    \Input\tikzmark{c}
+    \Statex $\gamma \in \mathbb{R}$ \Comment{ \dots }
+    \Statex $C \in \mathbb{R}$  \Comment{ \dots }
+    \Statex $r_{Stats It} \in \mathbb{N}$  \Comment{ Index of the current grid element ( outer loop iteration number ) }
+    \Statex $n \in \mathbb{N}$  \Comment{ Number of rows in the design matrix $X \in \mathbb{R}^{ n \times p}$ }\tikzmark{d}
+    \State dgt $\gets \gamma C^2 \frac{ r_{Stats It}^2 }{ n }$
+  \end{algorithmic}
+  \Return dgt
+\end{algorithm}
+\FloatBarrier
+
+\FloatBarrier
+\begin{algorithm}[!htbp]
+  \caption{$f_{\beta}$ }
+  \begin{algorithmic}[1]
+  \Statex
+  \Input\tikzmark{e}
+  \Statex $X \in \mathbb{R}^{n \times p} $ \Comment{ The design matrix }
+  \Statex $Y \in \mathbb{R}^n$  \Comment{ The vector of predictors }
+  \Statex $\beta \in \mathbb{R}^n$  \Comment{ Current $\beta$ }\tikzmark{f}
+    \State $f \gets X \beta - Y$.
+  \end{algorithmic}
+  \Return $\LTwoSqr{ f }$
+\end{algorithm}
+\FloatBarrier
+
+\FloatBarrier
+\begin{algorithm}[!htbp]
+  \caption{$f_{\widetilde{ \beta }}$ }
+  \begin{algorithmic}[1]
+  \Statex
+  \Input\tikzmark{g}
+  \Statex $X \in \mathbb{R}^{n \times p} $ \Comment{ The design matrix }
+  \Statex $Y \in \mathbb{R}^n$  \Comment{ The vector of predictors }
+  \Statex $\beta \in \mathbb{R}^n$  \Comment{ The $k$'th $\beta$ vector }
+  \Statex $\beta' \in \mathbb{R}^n$  \Comment{ The $k-1$'th $\beta$ vector }
+  \Statex $L \in \mathbb{R}$  \Comment{ The current Lipschitz constant, as computed by backtracking line search }\tikzmark{h}
+    \State $f \gets X \beta - Y$.
+    \State $t_0 \gets \LTwoSqr{ f }$
+    \State $\nabla f \gets 2 X^T f$
+    \State $\Delta_{\beta} \gets \beta - \beta'$
+    \State $t_1 \gets \nabla f^T \Delta_{\beta}$
+    \State $t_2 \gets \frac{L}{2} \LTwoSqr{ \Delta_{\beta} }$
+  \end{algorithmic}
+  \Return $t_0 + t_1 + t_2$
+\end{algorithm}
+\FloatBarrier
+
+\FloatBarrier
+\begin{algorithm}[!htbp]
+  \caption{$\tau$ ( Matrix-wise Soft-Thresholding / Proximal Operator ) }
+  \begin{algorithmic}[1]
+  \Statex
+  \Input\tikzmark{i}
+  \Statex $X \in \mathbb{R}^{n \times m} $ \Comment{ An arbitrary matrix }
+  \Statex $\lambda \in \mathbb{R}$  \Comment{ The thresholding parameter }\tikzmark{j}
+    \State $\widetilde{X} \gets X$ \Comment{Make a copy of $X$.}
+    \For { $\widetilde{x}_{i,j} \in \widetilde{X}$ }
+      \State $\widetilde{x}_{i,j} \gets \text{sign}( \widetilde{x}_{i,j} ) \left( \lvert \widetilde{x}_{i,j} \rvert - \lambda \right)^{+}$
+    \EndFor
+  \end{algorithmic}
+  \Return $\widetilde{X}$
+\end{algorithm}
+\FloatBarrier
+
+\FloatBarrier
+\begin{algorithm}[!htbp]
+  \caption{ISTA with backtracking line search and duality gap convergence criteria}
+  \begin{algorithmic}[1]
+  \Statex
+  \Input\tikzmark{k}
+  \Statex $X \in \mathbb{R}^{n \times p} $ \Comment{ The design matrix }
+  \Statex $Y \in \mathbb{R}^n$  \Comment{ The vector of predictors }
+  \Statex $\beta \in \mathbb{R}^n$  \Comment{ Starting vector }
+  \Statex $L_0 \in \mathbb{R}$  \Comment{ Initial Lipschitz constant, used by backtracking line search }
+  \Statex $\lambda \in \mathbb{R}$  \Comment{ Grid element }
+  \Statex $\eta \in \mathbb{R}$  \Comment{ Step size when updating Lipschitz constant }
+  \Statex $\mathcal{D} \in \mathbb{R}$  \Comment{ Duality gap target }\tikzmark{l}
+    \State $\widetilde{\beta} \gets \beta$ \Comment{ Make a copy of $\beta$ that will be updated during back tracking.}
+      \Do
+        \State $ \widetilde{\beta} \gets \tau( \beta - \frac{1}{L} \nabla f( X, Y, \widetilde{\beta}, L ) )$
+        \While{ $f_{\beta} ( X, Y, \widetilde{\beta} ) > f_{\widetilde{\beta}}( X, Y, \widetilde{\beta}, \beta_, L) $ }
+          \State $L \gets \eta L$
+          \State $ \widetilde{\beta} \gets \tau( \beta - \frac{1}{L} \nabla f( X, Y, \beta ) )$
+        \EndWhile
+        \State $\beta \gets \tau( \beta - \frac{1}{L} \nabla f( X, Y, \beta, L ) )$ \Comment{ Update $\beta$ once $L$ is sufficiently large.}
+      \doWhile{ DG $( X, Y, \beta, \lambda ) > \mathcal{D}$ }\\
+  \end{algorithmic}
+  \Return $\beta$
+\end{algorithm}
+\FloatBarrier
+
+\FloatBarrier
+\begin{algorithm}[!htbp]
+  \caption{FISTA with backtracking line search and duality gap convergence criteria}
+  \begin{algorithmic}[1]
+  \Statex
+  \Input\tikzmark{k}
+  \Statex $X \in \mathbb{R}^{n \times p} $ \Comment{ The design matrix }
+  \Statex $Y \in \mathbb{R}^n$  \Comment{ The vector of predictors }
+  \Statex $\beta \in \mathbb{R}^n$  \Comment{ Starting vector }
+  \Statex $L_0 \in \mathbb{R}$  \Comment{ Initial Lipschitz constant, used by backtracking line search }
+  \Statex $\lambda \in \mathbb{R}$  \Comment{ Grid element }
+  \Statex $\eta \in \mathbb{R}$  \Comment{ Step size when updating Lipschitz constant }
+  \Statex $\mathcal{D} \in \mathbb{R}$  \Comment{ Duality gap target }\tikzmark{l}
+  \Statex $y_{k-1} \in \mathbb{R}^b$ \Comment{ Beta vector from previous iteration of FISTA}
+  \Statex $x_{k-1} \in \mathbb{R}^b$ \Comment{ Intermediary vector from previous iteration of FISTA}
+    \State $y_k \gets \beta$
+      \Do
+        \State $y_{k-1} \gets x_k$
+        \State $t_k \gets 0$
+        \State $ \widetilde{y_k} \gets \tau( \beta - \frac{1}{L} \nabla f( X, Y, y_k ) )$
+        \While{ $f_{\beta} ( X, Y, \widetilde{y_k} ) > f_{\widetilde{\beta}}( X, Y, \widetilde{y_k}, y_k, L) $ }
+          \State $L \gets \eta L$
+          \State $\widetilde{y_k} \gets \tau( \beta - \frac{1}{L} \nabla f( X, Y, \beta ) )$
+        \EndWhile
+        \State $x_{k-1} \gets x_k$
+        \State $x_k \gets \tau( \beta - \frac{1}{L} \nabla f( X, Y, \widetilde{y_k} ) )$
+        \State $t_{k+1} = \frac{ \left( 1 + \sqrt{ 1 + 4 t_k^2} \right) }{ 2 }$
+        \State $y_k \gets x_k + \frac{ \left( t_k - 1 \right) }{ t_{k+1} } \left( x_k - x_{k-1} \right)$
+      \doWhile{ DG $( X, Y, \beta, \lambda ) > \mathcal{D}$ }\\
+  \end{algorithmic}
+  \Return $y_k, y_{k-1}, x_{k-1}, t_{k+1}$
+\end{algorithm}
+\FloatBarrier
+
+\FloatBarrier
+\begin{algorithm}[!htbp]
+  \caption{ $\lambda$GRID }
+  \begin{algorithmic}[1]
+  \Statex
+  \Input\tikzmark{i}
+  \Statex $X \in \mathbb{R}^{n \times m} $ \Comment{ The design matrix }
+  \Statex $Y \in \mathbb{R}^{n} $ \Comment{ The vector of predictors }
+  \Statex $M \in \mathbb{N} $ \Comment{ The number of grid elements required }\tikzmark{j}
+    \State $ r_{max} \gets 2 \lvert \lvert X^T Y \rvert \rvert_{\infty}$
+    \State $ r_{min} \gets \frac{1}{1000} r_{max}$
+    \State $ \Delta_r \gets \left( r_{max} - r_{min} \right)$
+    \State Let $\Lambda \in \mathbb{R}^M$ \Comment{Initialize empty array of size M}
+    \For { $i \in [ 1, 2, \dots, M ]$ }
+      \State $\delta_l \gets \Delta_r \frac{ i }{ M - 1 } + r_{min}$ \Comment{ Compute linear step }
+      \State $\Lambda[i] \gets 10^{\delta_l}$ \Comment{ Convert to logarithmic step }
+    \EndFor
+  \end{algorithmic}
+  \Return $\Lambda$
+\end{algorithm}
+\FloatBarrier
+
+\FloatBarrier
+\begin{algorithm}[!htbp]
+  \caption{ SCC: Stats Continutation Condition }
+  \begin{algorithmic}[1]
+  \Statex
+  \Input\tikzmark{i}
+  \Statex $C \in \mathbb{R}$ \Comment{ The design matrix }
+  \Statex $statsIt \in \mathbb{N}$ \Comment{ The vector of predictors }
+  \Statex $\lambda \in \mathbb{R}$ \Comment{ Current grid element }
+  \Statex $\Lambda \in \mathbb{R}^M$ \Comment{ Vector of grid elements }
+  \Statex $X \in \mathbb{R}^{ n \times p }$ \Comment{ Vector of grid elements }
+  \Statex $\beta_s \in \mathbb{R}^{ n \times M }$ \Comment{ Betas matrix }\tikzmark{j}
+    \State condition $\gets$ false
+    \For { $i \in [ 1, 2, \dots, statsIt ]$ }
+      \State $r_k \gets \Lambda_k$
+      \State $\Delta_{\beta} \gets \beta_{statsIt} - \beta_i$
+      \State check $\gets \frac{ n \LInf{ \Delta_{\beta} } }{ r_{statsIt} + r_k }$
+      \State condition $\gets$ condition $\And$ ( check $\leq C$ )
+    \EndFor
+  \end{algorithmic}
+  \Return condition
+\end{algorithm}
+\FloatBarrier
+
+\FloatBarrier
+\begin{algorithm}[!htbp]
+  \caption{FOS}
+  \begin{algorithmic}[1]
+  \Statex
+  \Input\tikzmark{k}
+  \Statex $X \in \mathbb{R}^{n \times p} $ \Comment{ The design matrix }
+  \Statex $Y \in \mathbb{R}^n$  \Comment{ The vector of predictors }
+  \Statex $\beta \in \mathbb{R}^n$  \Comment{ Starting vector }
+  \Statex $L_0 \in \mathbb{R}$  \Comment{ Initial Lipschitz constant, used by backtracking line search }
+  \Statex $M \in \mathbb{M}$  \Comment{ Number of grid elements }
+  \Statex $\eta \in \mathbb{R}$  \Comment{ Step size when updating Lipschitz constant }
+  \Statex $C \in \mathbb{R}$
+  \Statex $\gamma \in \mathbb{R}$\tikzmark{l}
+    \State $\widetilde{X} \gets \frac{1}{\sigma_X}\left( X - \mu_X \right)$. \Comment{Normalize X to mean 0 and standard deviation 1.}
+    \State $\widetilde{Y} \gets \frac{1}{\sigma_Y} \left( Y - \mu_Y \right)$. \Comment{Normalize Y.}
+    \State $\Lambda \gets \lambda$GRID$( X, Y, M )$ \Comment{Initialize grid elements}
+    \State $\beta_s \in \mathbb{R}^{ n \times m } = 0_{n,m}$. \Comment{Initialize matrix of Betas to zero matrix}
+      \While { statsCont $\And$ ( statsCont $<$ M ) }
+        \State $stats_{It} \gets stats_{It} + 1$
+        \State $\widetilde{\beta} \gets \beta_{k-1}$ \Comment{Initialize old beta vector with the k - 1'th Column of the Betas matrix.}
+        \State $r_{statsIt} \gets \Lambda_k$ \Comment{ Extract the k'th grid element. }
+          \If{ $ DG( X, Y, \beta_k, r_{statsIt} ) \leq DGT( \gamma, C, r_{statsIt}, n )$}
+            \State $\beta_k \gets \beta_{k-1}$
+          \Else
+            \State $\beta_k \gets \text{ISTA}( X, Y, \beta_{k-1}, L_0, r_{statsIt}, \eta, gap )$
+          \EndIf
+          \State $statsCont \gets$ SCC $( C, statsIt, r_{statsIt}, \Lambda, X, \beta_s )$
+      \EndWhile
+  \end{algorithmic}
+  \Return $\beta_{statsIt-1}, \Lambda_{statsIt}, statsIt$
+\end{algorithm}
+\FloatBarrier
+
+\end{document}

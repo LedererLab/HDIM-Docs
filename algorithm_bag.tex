@@ -168,7 +168,7 @@
           \State $X_{-i} \gets X_{ \forall j \neq i}$ \Comment{ Take all columns of design matrix not equal to $i$ }
           \State $\widetilde{\beta}_{-i} \gets \widetilde{\beta}_{ \forall j \neq i}$ \Comment{ Take all elements of predictors vectors not equal to $i$ }
           \State $r \gets \frac{ X_i^T\left( Y - X_{-i} \beta_{-i}\right) }{ \LTwoSqr{ X_i } }$ \Comment{ Compute the scaled residual }
-          \State $\widetilde{\beta}_i \gets \tau \left( r, t \right)$ \Comment{ Update the i'th element of Beta }
+          \State $\widetilde{\beta}_i \gets \frac{1}{2}\tau \left( 2 \times r, t \right)$ \Comment{ Update the i'th element of Beta }
         \EndFor
       \doWhile{ DG $( X, Y, \widetilde{\beta}, \lambda ) > \mathcal{D}$ }\\
   \end{algorithmic}

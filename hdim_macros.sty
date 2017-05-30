@@ -1,0 +1,28 @@
+\NeedsTeXFormat{LaTeX2e}[1994/06/01]
+\ProvidesPackage{hdim_algo}[2017/4/29 v1.0.0 Tweaks for pseudo-code produced in HDIM-docs]
+\RequirePackage{algorithm}
+\RequirePackage{algpseudocode}
+\RequirePackage{tikz}
+
+\makeatletter
+\newcommand\blx@unitmark{23sp}
+\makeatother
+
+\newcommand{\LOne}[1]{ \lvert \lvert #1 \rvert \rvert_1 }
+\newcommand{\LTwoSqr}[1]{ \lvert \lvert #1 \rvert \rvert_2^2 }
+\newcommand{\LInf}[1]{ \lvert \lvert #1 \rvert \rvert_{\infty} }
+
+\newcommand\tikzmark[1]{%
+  \tikz[remember picture,overlay]\node[inner sep=2pt] (#1) {};}
+\newcommand\DrawBox[3][]{%
+  \tikz[remember picture,overlay]\draw[#1] ([xshift=-3.5em,yshift=7pt]#2.north west) rectangle (#3.south east);}
+
+\algnewcommand\algorithmicinput{\textbf{Input:}}
+\algnewcommand\Input{\item[\algorithmicinput]}
+
+\algnewcommand\algorithmicoutput{\textbf{Output:}}
+\algnewcommand\Output{\item[\algorithmicoutput]}
+
+\algdef{SE}[DOWHILE]{Do}{doWhile}{\algorithmicdo}[1]{\algorithmicwhile\ #1}%
+
+\endinput

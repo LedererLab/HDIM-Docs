@@ -1,0 +1,385 @@
+htfcss: cmmi font-style: italic;
+htfcss: cmmib font-style: italic; font-weight: bold;
+htfcss: cmbx  font-weight: bold;
+htfcss: cmbxsl  font-weight: bold; font-style: oblique;
+File: algorithm_bag.html
+File: algorithm_bag.css
+File: algorithm_bag.tmp
+File: algorithm_bag-1.svg
+File: algorithm_bag-2.svg
+Font_Class(1,"1"): <img  src="" alt="" class="%s-%dx-x-%x" />
+File: algorithm_bag-3.svg
+File: algorithm_bag-4.svg
+File: algorithm_bag-5.svg
+File: algorithm_bag-6.svg
+File: algorithm_bag-7.svg
+File: algorithm_bag-8.svg
+File: algorithm_bag-9.svg
+File: algorithm_bag-10.svg
+File: algorithm_bag-11.svg
+File: algorithm_bag-12.svg
+File: algorithm_bag-13.svg
+File: algorithm_bag-14.svg
+File: algorithm_bag-15.svg
+File: algorithm_bag-16.svg
+File: algorithm_bag-17.svg
+File: algorithm_bag-18.svg
+File: algorithm_bag-19.svg
+File: algorithm_bag-20.svg
+File: algorithm_bag-21.svg
+File: algorithm_bag-22.svg
+File: algorithm_bag-23.svg
+File: algorithm_bag-24.svg
+Css: p.noindent { text-indent: 0em }
+Css: td p.noindent { text-indent: 0em; margin-top:0em; }
+Css: p.nopar { text-indent: 0em; }
+Css: p.indent{ text-indent: 1.5em }
+Css: @media print {div.crosslinks {visibility:hidden;}}
+Css: a img { border-top: 0; border-left: 0; border-right: 0; }
+Font_Css("4"): .small-caps{font-variant: small-caps; }
+Font_Css("10"): .htf-cmbx {font-weight: bold; font-style:normal;}
+Font_Css("12"): .htf-calligraphy {font-family:cursive}
+Font_Css("14"): .htf-italic {font-style: italic;}
+Font_Css("16"): .htf-bold {font-weight: bold;}
+Font_Css("12"): .htf-calligraphy-bold {font-family:cursive ; font-weight: bold; }
+Css: center { margin-top:1em; margin-bottom:1em; }
+Css: td center { margin-top:0em; margin-bottom:0em; }
+Css: .Canvas { position:relative; }
+Css: img.math{vertical-align:middle;}
+Css: li p.indent { text-indent: 0em }
+Css: li p:first-child{ margin-top:0em; }
+Css: li p:last-child, li div:last-child { margin-bottom:0.5em; }
+Css: li p~ul:last-child, li p~ol:last-child{ margin-bottom:0.5em; }
+Css: .enumerate1 {list-style-type:decimal;}
+Css: .enumerate2 {list-style-type:lower-alpha;}
+Css: .enumerate3 {list-style-type:lower-roman;}
+Css: .enumerate4 {list-style-type:upper-alpha;}
+Css: div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+Css: .obeylines-h,.obeylines-v {white-space: nowrap; }
+Css: div.obeylines-v p { margin-top:0; margin-bottom:0; }
+Css: .overline{ text-decoration:overline; }
+Css: .overline img{ border-top: 1px solid black; }
+Css: td.displaylines {text-align:center; white-space:nowrap;}
+Css: .centerline {text-align:center;}
+Css: .rightline {text-align:right;}
+Css: div.verbatim {font-family: monospace; white-space: nowrap; text-align:left; clear:both; }
+Css: .fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+Css: div.fbox {display:table}
+Css: div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+Css: div.minipage{width:100%;}
+Css: div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+Css: div.center div {text-align: left;}
+Css: div.flushright, div.flushright div.flushright {text-align: right;}
+Css: div.flushright div {text-align: left;}
+Css: div.flushleft {text-align: left;}
+Css: .underline{ text-decoration:underline; }
+Css: .underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+Css: .framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+Css: .framebox-c {text-align:center;}
+Css: .framebox-l {text-align:left;}
+Css: .framebox-r {text-align:right;}
+Css: span.thank-mark{ vertical-align: super }
+Css: span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+Css: div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+Css: table.tabular td p{margin-top:0em;}
+Css: table.tabular {margin-left: auto; margin-right: auto;}
+Css: td p:first-child{ margin-top:0em; }
+Css: td p:last-child{ margin-bottom:0em; }
+Css: div.td00{ margin-left:0pt; margin-right:0pt; }
+Css: div.td01{ margin-left:0pt; margin-right:5pt; }
+Css: div.td10{ margin-left:5pt; margin-right:0pt; }
+Css: div.td11{ margin-left:5pt; margin-right:5pt; }
+Css: table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+Css: td.td00{ padding-left:0pt; padding-right:0pt; }
+Css: td.td01{ padding-left:0pt; padding-right:5pt; }
+Css: td.td10{ padding-left:5pt; padding-right:0pt; }
+Css: td.td11{ padding-left:5pt; padding-right:5pt; }
+Css: table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+Css: .hline hr, .cline hr{ height : 1px; margin:0px; }
+Css: .tabbing-right {text-align:right;}
+Css: span.TEX {letter-spacing: -0.125em; }
+Css: span.TEX span.E{ position:relative;top:0.5ex;left:-0.0417em;}
+Css: a span.TEX span.E {text-decoration: none; }
+Css: span.LATEX span.A{ position:relative; top:-0.5ex; left:-0.4em; font-size:85%;}
+Css: span.LATEX span.TEX{ position:relative; left: -0.4em; }
+Css: div.float, div.figure {margin-left: auto; margin-right: auto;}
+Css: div.float img {text-align:center;}
+Css: div.figure img {text-align:center;}
+Css: .marginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+Css: .marginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+Css: table.equation {width:100%;}
+Css: .equation td{text-align:center; }
+Css: td.equation { margin-top:1em; margin-bottom:1em; } 
+Css: td.equation-label { width:5%; text-align:center; }
+Css: td.eqnarray4 { width:5%; white-space: normal; }
+Css: td.eqnarray2 { width:5%; }
+Css: table.eqnarray-star, table.eqnarray {width:100%;}
+Css: div.eqnarray{text-align:center;}
+Css: div.array {text-align:center;}
+Css: div.pmatrix {text-align:center;}
+Css: table.pmatrix {width:100%;}
+Css: span.pmatrix img{vertical-align:middle;}
+Css: div.pmatrix {text-align:center;}
+Css: table.pmatrix {width:100%;}
+Css: span.bar-css {text-decoration:overline;}
+Css: img.cdots{vertical-align:middle;}
+Css: .partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+Css: .index-item, .index-subitem, .index-subsubitem {display:block}
+Css: div.caption {text-indent:-2em; margin-left:3em; margin-right:1em; text-align:left;}
+Css: div.caption span.id{font-weight: bold; white-space: nowrap; }
+Css: h1.partHead{text-align: center}
+Css: p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+Css: p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+Css: .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
+Css: .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
+Css: .quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
+Css: .verse{white-space:nowrap; margin-left:2em}
+Css: div.maketitle {text-align:center;}
+Css: h2.titleHead{text-align:center;}
+Css: div.maketitle{ margin-bottom: 2em; }
+Css: div.author, div.date {text-align:center;}
+Css: div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
+Css: div.author{white-space: nowrap;}
+Font_Size: 11
+Css: .quotation {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; }
+Css: .abstract p {margin-left:5%; margin-right:5%;}
+Css: div.abstract {width:100%;}
+Css: .equation td{text-align:center; }
+Css: .equation-star td{text-align:center; }
+Css: table.equation-star { width:100%; }
+Css: table.equation { width:100%; }
+Css: table.align, table.alignat, table.xalignat, table.xxalignat, table.flalign {width:100%; margin-left:5%; white-space: nowrap;}
+Css: table.align-star, table.alignat-star, table.xalignat-star, table.flalign-star {margin-left:auto; margin-right:auto; white-space: nowrap;}
+Css: td.align-label { width:5%; text-align:center; }
+Css: td.align-odd { text-align:right; padding-right:0.3em;}
+Css: td.align-even { text-align:left; padding-right:0.6em;}
+Css: table.multline, table.multline-star {width:100%;}
+Css: td.gather {text-align:center; }
+Css: table.gather {width:100%;}
+Css: div.gather-star {text-align:center;}
+Css: div.algorithm table.caption { border-bottom: 1px solid black; margin-bottom:1pt; }
+Css: .figure img.graphics {margin-left:10%;}
+Css: div.algorithmic span.algorithmic{white-space:pre}
+Css:  .foreignobject {line-height:100%; font-size:120%; font-family:STIXgeneral,Times,Symbol,cmr10,CMSY10,CMEX10;padding:0; margin:0; text-align:center; } 
+Css: math {vertical-align:baseline; line-height:100%; font-size:100%; font-family:STIXGeneral,Times,Symbol, cmr10,cmsy10,cmex10,cmmi10; font-style: normal; margin:0; padding:0; }
+--- needs --- algorithm_bag.idv[2] ==> algorithm_bag0x.png ---
+--- needs --- algorithm_bag.idv[3] ==> algorithm_bag1x.png ---
+--- needs --- algorithm_bag.idv[4] ==> algorithm_bag2x.png ---
+--- needs --- algorithm_bag.idv[5] ==> algorithm_bag3x.png ---
+Css:  .foreignobject {line-height:100%; font-size:120%; font-family:STIXgeneral,Times,Symbol,cmr10,CMSY10,CMEX10;padding:0; margin:0; text-align:center; } 
+Css: math {vertical-align:baseline; line-height:100%; font-size:100%; font-family:STIXGeneral,Times,Symbol, cmr10,cmsy10,cmex10,cmmi10; font-style: normal; margin:0; padding:0; }
+--- needs --- algorithm_bag.idv[6] ==> algorithm_bag4x.png ---
+--- needs --- algorithm_bag.idv[7] ==> algorithm_bag5x.png ---
+--- needs --- algorithm_bag.idv[8] ==> algorithm_bag6x.png ---
+--- needs --- algorithm_bag.idv[9] ==> algorithm_bag7x.png ---
+--- needs --- algorithm_bag.idv[10] ==> algorithm_bag8x.png ---
+--- needs --- algorithm_bag.idv[11] ==> algorithm_bag9x.png ---
+--- needs --- algorithm_bag.idv[12] ==> algorithm_bag10x.png ---
+--- needs --- algorithm_bag.idv[13] ==> algorithm_bag11x.png ---
+--- needs --- algorithm_bag.idv[14] ==> algorithm_bag12x.png ---
+Css:  .foreignobject {line-height:100%; font-size:120%; font-family:STIXgeneral,Times,Symbol,cmr10,CMSY10,CMEX10;padding:0; margin:0; text-align:center; } 
+Css: math {vertical-align:baseline; line-height:100%; font-size:100%; font-family:STIXGeneral,Times,Symbol, cmr10,cmsy10,cmex10,cmmi10; font-style: normal; margin:0; padding:0; }
+--- needs --- algorithm_bag.idv[16] ==> algorithm_bag13x.png ---
+--- needs --- algorithm_bag.idv[17] ==> algorithm_bag14x.png ---
+--- needs --- algorithm_bag.idv[18] ==> algorithm_bag15x.png ---
+--- needs --- algorithm_bag.idv[19] ==> algorithm_bag16x.png ---
+Css:  .foreignobject {line-height:100%; font-size:120%; font-family:STIXgeneral,Times,Symbol,cmr10,CMSY10,CMEX10;padding:0; margin:0; text-align:center; } 
+Css: math {vertical-align:baseline; line-height:100%; font-size:100%; font-family:STIXGeneral,Times,Symbol, cmr10,cmsy10,cmex10,cmmi10; font-style: normal; margin:0; padding:0; }
+--- needs --- algorithm_bag.idv[20] ==> algorithm_bag17x.png ---
+Css:  .foreignobject {line-height:100%; font-size:120%; font-family:STIXgeneral,Times,Symbol,cmr10,CMSY10,CMEX10;padding:0; margin:0; text-align:center; } 
+Css: math {vertical-align:baseline; line-height:100%; font-size:100%; font-family:STIXGeneral,Times,Symbol, cmr10,cmsy10,cmex10,cmmi10; font-style: normal; margin:0; padding:0; }
+--- needs --- algorithm_bag.idv[22] ==> algorithm_bag18x.png ---
+--- needs --- algorithm_bag.idv[23] ==> algorithm_bag19x.png ---
+--- needs --- algorithm_bag.idv[24] ==> algorithm_bag20x.png ---
+Css:  .foreignobject {line-height:100%; font-size:120%; font-family:STIXgeneral,Times,Symbol,cmr10,CMSY10,CMEX10;padding:0; margin:0; text-align:center; } 
+Css: math {vertical-align:baseline; line-height:100%; font-size:100%; font-family:STIXGeneral,Times,Symbol, cmr10,cmsy10,cmex10,cmmi10; font-style: normal; margin:0; padding:0; }
+--- needs --- algorithm_bag.idv[26] ==> algorithm_bag21x.png ---
+Css:  .foreignobject {line-height:100%; font-size:120%; font-family:STIXgeneral,Times,Symbol,cmr10,CMSY10,CMEX10;padding:0; margin:0; text-align:center; } 
+Css: math {vertical-align:baseline; line-height:100%; font-size:100%; font-family:STIXGeneral,Times,Symbol, cmr10,cmsy10,cmex10,cmmi10; font-style: normal; margin:0; padding:0; }
+--- needs --- algorithm_bag.idv[27] ==> algorithm_bag22x.png ---
+--- needs --- algorithm_bag.idv[28] ==> algorithm_bag23x.png ---
+--- needs --- algorithm_bag.idv[29] ==> algorithm_bag24x.png ---
+--- needs --- algorithm_bag.idv[30] ==> algorithm_bag25x.png ---
+--- needs --- algorithm_bag.idv[31] ==> algorithm_bag26x.png ---
+Css:  .foreignobject {line-height:100%; font-size:120%; font-family:STIXgeneral,Times,Symbol,cmr10,CMSY10,CMEX10;padding:0; margin:0; text-align:center; } 
+Css: math {vertical-align:baseline; line-height:100%; font-size:100%; font-family:STIXGeneral,Times,Symbol, cmr10,cmsy10,cmex10,cmmi10; font-style: normal; margin:0; padding:0; }
+--- needs --- algorithm_bag.idv[32] ==> algorithm_bag27x.png ---
+Css:  .foreignobject {line-height:100%; font-size:120%; font-family:STIXgeneral,Times,Symbol,cmr10,CMSY10,CMEX10;padding:0; margin:0; text-align:center; } 
+Css: math {vertical-align:baseline; line-height:100%; font-size:100%; font-family:STIXGeneral,Times,Symbol, cmr10,cmsy10,cmex10,cmmi10; font-style: normal; margin:0; padding:0; }
+--- needs --- algorithm_bag.idv[34] ==> algorithm_bag28x.png ---
+--- needs --- algorithm_bag.idv[35] ==> algorithm_bag29x.png ---
+Css:  .foreignobject {line-height:100%; font-size:120%; font-family:STIXgeneral,Times,Symbol,cmr10,CMSY10,CMEX10;padding:0; margin:0; text-align:center; } 
+Css: math {vertical-align:baseline; line-height:100%; font-size:100%; font-family:STIXGeneral,Times,Symbol, cmr10,cmsy10,cmex10,cmmi10; font-style: normal; margin:0; padding:0; }
+--- needs --- algorithm_bag.idv[36] ==> algorithm_bag30x.png ---
+--- needs --- algorithm_bag.idv[37] ==> algorithm_bag31x.png ---
+--- needs --- algorithm_bag.idv[38] ==> algorithm_bag32x.png ---
+--- needs --- algorithm_bag.idv[39] ==> algorithm_bag33x.png ---
+--- needs --- algorithm_bag.idv[40] ==> algorithm_bag34x.png ---
+--- needs --- algorithm_bag.idv[41] ==> algorithm_bag35x.png ---
+--- needs --- algorithm_bag.idv[42] ==> algorithm_bag36x.png ---
+--- needs --- algorithm_bag.idv[43] ==> algorithm_bag37x.png ---
+Css:  .foreignobject {line-height:100%; font-size:120%; font-family:STIXgeneral,Times,Symbol,cmr10,CMSY10,CMEX10;padding:0; margin:0; text-align:center; } 
+Css: math {vertical-align:baseline; line-height:100%; font-size:100%; font-family:STIXGeneral,Times,Symbol, cmr10,cmsy10,cmex10,cmmi10; font-style: normal; margin:0; padding:0; }
+--- needs --- algorithm_bag.idv[45] ==> algorithm_bag38x.png ---
+--- needs --- algorithm_bag.idv[46] ==> algorithm_bag39x.png ---
+--- needs --- algorithm_bag.idv[47] ==> algorithm_bag40x.png ---
+--- needs --- algorithm_bag.idv[48] ==> algorithm_bag41x.png ---
+--- needs --- algorithm_bag.idv[49] ==> algorithm_bag42x.png ---
+--- needs --- algorithm_bag.idv[50] ==> algorithm_bag43x.png ---
+--- needs --- algorithm_bag.idv[51] ==> algorithm_bag44x.png ---
+Css:  .foreignobject {line-height:100%; font-size:120%; font-family:STIXgeneral,Times,Symbol,cmr10,CMSY10,CMEX10;padding:0; margin:0; text-align:center; } 
+Css: math {vertical-align:baseline; line-height:100%; font-size:100%; font-family:STIXGeneral,Times,Symbol, cmr10,cmsy10,cmex10,cmmi10; font-style: normal; margin:0; padding:0; }
+--- needs --- algorithm_bag.idv[52] ==> algorithm_bag45x.png ---
+--- needs --- algorithm_bag.idv[53] ==> algorithm_bag46x.png ---
+--- needs --- algorithm_bag.idv[54] ==> algorithm_bag47x.png ---
+--- needs --- algorithm_bag.idv[55] ==> algorithm_bag48x.png ---
+--- needs --- algorithm_bag.idv[56] ==> algorithm_bag49x.png ---
+--- needs --- algorithm_bag.idv[57] ==> algorithm_bag50x.png ---
+--- needs --- algorithm_bag.idv[58] ==> algorithm_bag51x.png ---
+--- needs --- algorithm_bag.idv[59] ==> algorithm_bag52x.png ---
+--- needs --- algorithm_bag.idv[60] ==> algorithm_bag53x.png ---
+--- needs --- algorithm_bag.idv[61] ==> algorithm_bag54x.png ---
+--- needs --- algorithm_bag.idv[62] ==> algorithm_bag55x.png ---
+--- needs --- algorithm_bag.idv[63] ==> algorithm_bag56x.png ---
+Css: .algorithmic span.label{width:3em; text-align:right;}
+Css:  .foreignobject {line-height:100%; font-size:120%; font-family:STIXgeneral,Times,Symbol,cmr10,CMSY10,CMEX10;padding:0; margin:0; text-align:center; } 
+Css: math {vertical-align:baseline; line-height:100%; font-size:100%; font-family:STIXGeneral,Times,Symbol, cmr10,cmsy10,cmex10,cmmi10; font-style: normal; margin:0; padding:0; }
+--- needs --- algorithm_bag.idv[65] ==> algorithm_bag57x.png ---
+--- needs --- algorithm_bag.idv[66] ==> algorithm_bag58x.png ---
+--- needs --- algorithm_bag.idv[67] ==> algorithm_bag59x.png ---
+--- needs --- algorithm_bag.idv[68] ==> algorithm_bag60x.png ---
+--- needs --- algorithm_bag.idv[69] ==> algorithm_bag61x.png ---
+Css:  .foreignobject {line-height:100%; font-size:120%; font-family:STIXgeneral,Times,Symbol,cmr10,CMSY10,CMEX10;padding:0; margin:0; text-align:center; } 
+Css: math {vertical-align:baseline; line-height:100%; font-size:100%; font-family:STIXGeneral,Times,Symbol, cmr10,cmsy10,cmex10,cmmi10; font-style: normal; margin:0; padding:0; }
+--- needs --- algorithm_bag.idv[70] ==> algorithm_bag62x.png ---
+--- needs --- algorithm_bag.idv[71] ==> algorithm_bag63x.png ---
+--- needs --- algorithm_bag.idv[72] ==> algorithm_bag64x.png ---
+--- needs --- algorithm_bag.idv[73] ==> algorithm_bag65x.png ---
+--- needs --- algorithm_bag.idv[74] ==> algorithm_bag66x.png ---
+--- needs --- algorithm_bag.idv[75] ==> algorithm_bag67x.png ---
+--- needs --- algorithm_bag.idv[76] ==> algorithm_bag68x.png ---
+--- needs --- algorithm_bag.idv[77] ==> algorithm_bag69x.png ---
+--- needs --- algorithm_bag.idv[78] ==> algorithm_bag70x.png ---
+--- needs --- algorithm_bag.idv[79] ==> algorithm_bag71x.png ---
+--- needs --- algorithm_bag.idv[80] ==> algorithm_bag72x.png ---
+--- needs --- algorithm_bag.idv[81] ==> algorithm_bag73x.png ---
+--- needs --- algorithm_bag.idv[82] ==> algorithm_bag74x.png ---
+Css: .algorithmic span.label{width:3em; text-align:right;}
+--- needs --- algorithm_bag.idv[84] ==> algorithm_bag75x.png ---
+--- needs --- algorithm_bag.idv[85] ==> algorithm_bag76x.png ---
+Css:  .foreignobject {line-height:100%; font-size:120%; font-family:STIXgeneral,Times,Symbol,cmr10,CMSY10,CMEX10;padding:0; margin:0; text-align:center; } 
+Css: math {vertical-align:baseline; line-height:100%; font-size:100%; font-family:STIXGeneral,Times,Symbol, cmr10,cmsy10,cmex10,cmmi10; font-style: normal; margin:0; padding:0; }
+--- needs --- algorithm_bag.idv[87] ==> algorithm_bag77x.png ---
+--- needs --- algorithm_bag.idv[88] ==> algorithm_bag78x.png ---
+--- needs --- algorithm_bag.idv[89] ==> algorithm_bag79x.png ---
+--- needs --- algorithm_bag.idv[90] ==> algorithm_bag80x.png ---
+--- needs --- algorithm_bag.idv[91] ==> algorithm_bag81x.png ---
+Css:  .foreignobject {line-height:100%; font-size:120%; font-family:STIXgeneral,Times,Symbol,cmr10,CMSY10,CMEX10;padding:0; margin:0; text-align:center; } 
+Css: math {vertical-align:baseline; line-height:100%; font-size:100%; font-family:STIXGeneral,Times,Symbol, cmr10,cmsy10,cmex10,cmmi10; font-style: normal; margin:0; padding:0; }
+--- needs --- algorithm_bag.idv[92] ==> algorithm_bag82x.png ---
+--- needs --- algorithm_bag.idv[93] ==> algorithm_bag83x.png ---
+--- needs --- algorithm_bag.idv[94] ==> algorithm_bag84x.png ---
+--- needs --- algorithm_bag.idv[95] ==> algorithm_bag85x.png ---
+--- needs --- algorithm_bag.idv[96] ==> algorithm_bag86x.png ---
+--- needs --- algorithm_bag.idv[97] ==> algorithm_bag87x.png ---
+--- needs --- algorithm_bag.idv[98] ==> algorithm_bag88x.png ---
+--- needs --- algorithm_bag.idv[99] ==> algorithm_bag89x.png ---
+--- needs --- algorithm_bag.idv[100] ==> algorithm_bag90x.png ---
+--- needs --- algorithm_bag.idv[101] ==> algorithm_bag91x.png ---
+--- needs --- algorithm_bag.idv[102] ==> algorithm_bag92x.png ---
+--- needs --- algorithm_bag.idv[103] ==> algorithm_bag93x.png ---
+--- needs --- algorithm_bag.idv[104] ==> algorithm_bag94x.png ---
+Css: .algorithmic span.label{width:3em; text-align:right;}
+--- needs --- algorithm_bag.idv[106] ==> algorithm_bag95x.png ---
+--- needs --- algorithm_bag.idv[107] ==> algorithm_bag96x.png ---
+Css:  .foreignobject {line-height:100%; font-size:120%; font-family:STIXgeneral,Times,Symbol,cmr10,CMSY10,CMEX10;padding:0; margin:0; text-align:center; } 
+Css: math {vertical-align:baseline; line-height:100%; font-size:100%; font-family:STIXGeneral,Times,Symbol, cmr10,cmsy10,cmex10,cmmi10; font-style: normal; margin:0; padding:0; }
+--- needs --- algorithm_bag.idv[109] ==> algorithm_bag97x.png ---
+--- needs --- algorithm_bag.idv[110] ==> algorithm_bag98x.png ---
+--- needs --- algorithm_bag.idv[111] ==> algorithm_bag99x.png ---
+--- needs --- algorithm_bag.idv[112] ==> algorithm_bag100x.png ---
+--- needs --- algorithm_bag.idv[113] ==> algorithm_bag101x.png ---
+--- needs --- algorithm_bag.idv[114] ==> algorithm_bag102x.png ---
+--- needs --- algorithm_bag.idv[115] ==> algorithm_bag103x.png ---
+Css:  .foreignobject {line-height:100%; font-size:120%; font-family:STIXgeneral,Times,Symbol,cmr10,CMSY10,CMEX10;padding:0; margin:0; text-align:center; } 
+Css: math {vertical-align:baseline; line-height:100%; font-size:100%; font-family:STIXGeneral,Times,Symbol, cmr10,cmsy10,cmex10,cmmi10; font-style: normal; margin:0; padding:0; }
+--- needs --- algorithm_bag.idv[116] ==> algorithm_bag104x.png ---
+--- needs --- algorithm_bag.idv[117] ==> algorithm_bag105x.png ---
+--- needs --- algorithm_bag.idv[118] ==> algorithm_bag106x.png ---
+--- needs --- algorithm_bag.idv[119] ==> algorithm_bag107x.png ---
+--- needs --- algorithm_bag.idv[120] ==> algorithm_bag108x.png ---
+--- needs --- algorithm_bag.idv[121] ==> algorithm_bag109x.png ---
+--- needs --- algorithm_bag.idv[122] ==> algorithm_bag110x.png ---
+--- needs --- algorithm_bag.idv[124] ==> algorithm_bag111x.png ---
+--- needs --- algorithm_bag.idv[125] ==> algorithm_bag112x.png ---
+Css: .algorithmic span.label{width:3em; text-align:right;}
+--- needs --- algorithm_bag.idv[126] ==> algorithm_bag113x.png ---
+--- needs --- algorithm_bag.idv[127] ==> algorithm_bag114x.png ---
+--- needs --- algorithm_bag.idv[128] ==> algorithm_bag115x.png ---
+--- needs --- algorithm_bag.idv[129] ==> algorithm_bag116x.png ---
+--- needs --- algorithm_bag.idv[130] ==> algorithm_bag117x.png ---
+Css:  .foreignobject {line-height:100%; font-size:120%; font-family:STIXgeneral,Times,Symbol,cmr10,CMSY10,CMEX10;padding:0; margin:0; text-align:center; } 
+Css: math {vertical-align:baseline; line-height:100%; font-size:100%; font-family:STIXGeneral,Times,Symbol, cmr10,cmsy10,cmex10,cmmi10; font-style: normal; margin:0; padding:0; }
+--- needs --- algorithm_bag.idv[132] ==> algorithm_bag118x.png ---
+--- needs --- algorithm_bag.idv[133] ==> algorithm_bag119x.png ---
+--- needs --- algorithm_bag.idv[134] ==> algorithm_bag120x.png ---
+Css:  .foreignobject {line-height:100%; font-size:120%; font-family:STIXgeneral,Times,Symbol,cmr10,CMSY10,CMEX10;padding:0; margin:0; text-align:center; } 
+Css: math {vertical-align:baseline; line-height:100%; font-size:100%; font-family:STIXGeneral,Times,Symbol, cmr10,cmsy10,cmex10,cmmi10; font-style: normal; margin:0; padding:0; }
+--- needs --- algorithm_bag.idv[135] ==> algorithm_bag121x.png ---
+--- needs --- algorithm_bag.idv[136] ==> algorithm_bag122x.png ---
+--- needs --- algorithm_bag.idv[137] ==> algorithm_bag123x.png ---
+--- needs --- algorithm_bag.idv[138] ==> algorithm_bag124x.png ---
+--- needs --- algorithm_bag.idv[139] ==> algorithm_bag125x.png ---
+--- needs --- algorithm_bag.idv[140] ==> algorithm_bag126x.png ---
+Css:  .foreignobject {line-height:100%; font-size:120%; font-family:STIXgeneral,Times,Symbol,cmr10,CMSY10,CMEX10;padding:0; margin:0; text-align:center; } 
+Css: math {vertical-align:baseline; line-height:100%; font-size:100%; font-family:STIXGeneral,Times,Symbol, cmr10,cmsy10,cmex10,cmmi10; font-style: normal; margin:0; padding:0; }
+--- needs --- algorithm_bag.idv[142] ==> algorithm_bag127x.png ---
+--- needs --- algorithm_bag.idv[143] ==> algorithm_bag128x.png ---
+--- needs --- algorithm_bag.idv[144] ==> algorithm_bag129x.png ---
+--- needs --- algorithm_bag.idv[145] ==> algorithm_bag130x.png ---
+--- needs --- algorithm_bag.idv[146] ==> algorithm_bag131x.png ---
+--- needs --- algorithm_bag.idv[147] ==> algorithm_bag132x.png ---
+Css:  .foreignobject {line-height:100%; font-size:120%; font-family:STIXgeneral,Times,Symbol,cmr10,CMSY10,CMEX10;padding:0; margin:0; text-align:center; } 
+Css: math {vertical-align:baseline; line-height:100%; font-size:100%; font-family:STIXGeneral,Times,Symbol, cmr10,cmsy10,cmex10,cmmi10; font-style: normal; margin:0; padding:0; }
+--- needs --- algorithm_bag.idv[148] ==> algorithm_bag133x.png ---
+Css:  .foreignobject {line-height:100%; font-size:120%; font-family:STIXgeneral,Times,Symbol,cmr10,CMSY10,CMEX10;padding:0; margin:0; text-align:center; } 
+Css: math {vertical-align:baseline; line-height:100%; font-size:100%; font-family:STIXGeneral,Times,Symbol, cmr10,cmsy10,cmex10,cmmi10; font-style: normal; margin:0; padding:0; }
+--- needs --- algorithm_bag.idv[150] ==> algorithm_bag134x.png ---
+--- needs --- algorithm_bag.idv[151] ==> algorithm_bag135x.png ---
+--- needs --- algorithm_bag.idv[152] ==> algorithm_bag136x.png ---
+--- needs --- algorithm_bag.idv[153] ==> algorithm_bag137x.png ---
+--- needs --- algorithm_bag.idv[154] ==> algorithm_bag138x.png ---
+--- needs --- algorithm_bag.idv[155] ==> algorithm_bag139x.png ---
+Css:  .foreignobject {line-height:100%; font-size:120%; font-family:STIXgeneral,Times,Symbol,cmr10,CMSY10,CMEX10;padding:0; margin:0; text-align:center; } 
+Css: math {vertical-align:baseline; line-height:100%; font-size:100%; font-family:STIXGeneral,Times,Symbol, cmr10,cmsy10,cmex10,cmmi10; font-style: normal; margin:0; padding:0; }
+--- needs --- algorithm_bag.idv[156] ==> algorithm_bag140x.png ---
+--- needs --- algorithm_bag.idv[157] ==> algorithm_bag141x.png ---
+--- needs --- algorithm_bag.idv[158] ==> algorithm_bag142x.png ---
+--- needs --- algorithm_bag.idv[159] ==> algorithm_bag143x.png ---
+--- needs --- algorithm_bag.idv[160] ==> algorithm_bag144x.png ---
+--- needs --- algorithm_bag.idv[161] ==> algorithm_bag145x.png ---
+--- needs --- algorithm_bag.idv[162] ==> algorithm_bag146x.png ---
+--- needs --- algorithm_bag.idv[163] ==> algorithm_bag147x.png ---
+--- needs --- algorithm_bag.idv[164] ==> algorithm_bag148x.png ---
+--- needs --- algorithm_bag.idv[165] ==> algorithm_bag149x.png ---
+--- needs --- algorithm_bag.idv[166] ==> algorithm_bag150x.png ---
+--- needs --- algorithm_bag.idv[167] ==> algorithm_bag151x.png ---
+--- needs --- algorithm_bag.idv[169] ==> algorithm_bag152x.png ---
+Css: .algorithmic span.label{width:3em; text-align:right;}
+--- characters ---
+Font("cmr","10","10","109")
+Font("cmbx","10","10","109")
+Font("cmr","8","8","100")
+Font("cmr","6","6","100")
+Font("cmmi","10","10","109")
+Font("cmmi","8","8","100")
+Font("cmmi","6","6","100")
+Font("cmsy","10","10","109")
+--- needs --- algorithm_bag.idv[171] ==> cmsy10-53.png ---
+--- needs --- algorithm_bag.idv[172] ==> cmsy10-44.png ---
+Font("cmsy","8","8","100")
+Font("cmsy","6","6","100")
+Font("cmex","10","10","109")
+Font("cmex","8","8","100")
+Font("msbm","10","10","109")
+Font("cmr","9","9","100")

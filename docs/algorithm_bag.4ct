@@ -1,0 +1,14 @@
+\expandafter\ifx\csname doTocEntry\endcsname\relax \expandafter\endinput\fi 
+\doTocEntry\tocloa{1}{\csname a:TocLink\endcsname{1}{x1-2r1}{}{\ignorespaces DG ( Duality Gap ) }}{algorithm}\relax 
+\doTocEntry\tocloa{2}{\csname a:TocLink\endcsname{1}{x1-3r2}{}{\ignorespaces DGT ( Duality Gap Target ) }}{algorithm}\relax 
+\doTocEntry\tocloa{3}{\csname a:TocLink\endcsname{1}{x1-4r3}{}{\ignorespaces $f_{\beta }$ }}{algorithm}\relax 
+\doTocEntry\tocloa{4}{\csname a:TocLink\endcsname{1}{x1-5r4}{}{\ignorespaces $f_{\setbox \z@ \hbox {\frozen@everymath \@emptytoks \mathsurround \z@ $\textstyle  \beta $}\mathaccent "0365{ \beta }}$ }}{algorithm}\relax 
+\doTocEntry\tocloa{5}{\csname a:TocLink\endcsname{1}{x1-6r5}{}{\ignorespaces $\tau $ ( Matrix-wise Soft-Thresholding / Proximal Operator ) }}{algorithm}\relax 
+\doTocEntry\tocloa{6}{\csname a:TocLink\endcsname{1}{x1-7r6}{}{\ignorespaces ISTA with backtracking line search and duality gap convergence criteria}}{algorithm}\relax 
+\doTocEntry\tocloa{7}{\csname a:TocLink\endcsname{1}{x1-8r7}{}{\ignorespaces Coordinate Descent with duality gap convergence criteria}}{algorithm}\relax 
+\doTocEntry\tocloa{8}{\csname a:TocLink\endcsname{1}{x1-9r8}{}{\ignorespaces Coordinate Descent with standardized data}}{algorithm}\relax 
+\doTocEntry\tocloa{9}{\csname a:TocLink\endcsname{1}{x1-10r9}{}{\ignorespaces FISTA with backtracking line search and duality gap convergence criteria}}{algorithm}\relax 
+\doTocEntry\tocloa{10}{\csname a:TocLink\endcsname{1}{x1-11r10}{}{\ignorespaces  $\lambda $GRID }}{algorithm}\relax 
+\doTocEntry\tocloa{11}{\csname a:TocLink\endcsname{1}{x1-12r11}{}{\ignorespaces  SCC: Stats Continutation Condition }}{algorithm}\relax 
+\doTocEntry\tocloa{12}{\csname a:TocLink\endcsname{1}{x1-13r12}{}{\ignorespaces FOS}}{algorithm}\relax 
+\par 

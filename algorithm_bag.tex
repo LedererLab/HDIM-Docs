@@ -203,6 +203,30 @@
 \end{algorithm}
 \FloatBarrier
 
+The next algorthim is a modified version of Coordinate Descent that seeks to reduce
+redunant computations as much as possible.
+This algorthim relies on the fact that many computation required by
+Coordinate Descent can be broken up into constant and non-constant parts. The
+constant parts of the computation can be performed ahead of time and stored for later use.
+
+Of particular note is the scaled residual computation, which when written down naively reads:
+
+\begin{center}
+$ r \gets \frac{ X_i^T\left( Y - X_{-i} \widetilde{\beta}_{-i}\right) }{ \LTwoSqr{ X_i } } $.
+\begin{center}
+
+Which we can re-write as,
+
+\begin{center}
+$ r \gets \frac{ X_i^T Y }{ \LTwoSqr{ X_i } } - \frac{ X_i^T X_{-i} }{ \LTwoSqr{ X_i } } \widetilde{\beta}_{-i}$.
+\begin{center}
+
+Note that since the design matrix $X$ and the vector of predictors $Y$ are fixed,
+ the terms $ \frac{ X_i^T Y }{ \LTwoSqr{ X_i } } $ and $\frac{ X_i^T X_{-i} }{ \LTwoSqr{ X_i } }$
+do not change as the values of $\widetilde{\beta}$ are updated. Our strategy will be to
+compute these values for each column of $X$ and store them in an array of size $p$,
+from which they will be access as $\widetilde{B}$ is updated.
+
 Note for this algorthim we establish the convention that array of a given data type
 will be declared as follows:
 \begin{center}

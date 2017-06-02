@@ -1,4 +1,5 @@
 #!/bin/bash
 
-htlatex ./algorithm_bag.tex -d ./docs/
-mv ./docs/algorithm_bag.html ./docs/index.html
+cd ./docs
+htlatex ../algorithm_bag.tex
+mv ./algorithm_bag.html ./index.html

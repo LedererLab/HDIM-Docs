@@ -179,6 +179,38 @@
 
 \FloatBarrier
 \begin{algorithm}[!htbp]
+  \caption{Coordinate Descent with Lazy Evaluation}
+  \begin{algorithmic}[1]
+  \Statex
+  \Input\tikzmark{k}
+  \Statex $X \in \mathbb{R}^{n \times p} $ \Comment{ The design matrix }
+  \Statex $Y \in \mathbb{R}^n$  \Comment{ The vector of predictors }
+  \Statex $\beta \in \mathbb{R}^n$  \Comment{ Starting vector }
+  \Statex $\lambda \in \mathbb{R}$  \Comment{ Grid element }
+  \Statex $\mathcal{D} \in \mathbb{R}$  \Comment{ Duality gap target }\tikzmark{l}
+    \State $\widetilde{\beta} \gets \beta$ \Comment{ Make a copy of $\beta$ }
+    \State $R \gets Y - X \widetilde{\beta}$ \Comment{ Initialize Intermediary Residual }
+      \Do
+        \For{ $i \in 1, 2, \dots, p$ }
+          \State $t \gets \frac{ \lambda }{ 2 \LTwoSqr{ X_i } }$ \Comment{ Scale grid element by norm of the i'th column of design matrix }
+          \If{ $ \widetilde{\beta}_i \neq 0 $ }{
+            $R \gets R + X_i \widetilde{B}_i$
+          }
+          \EndIf
+          \State $\widetilde{\beta}_i \gets \tau \left( \frac{X_i^T R}{ \LTwoSqr{ X_i } }, t \right)$ \Comment{ Update the i'th element of Beta }
+          \If{ $ \widetilde{\beta}_i \neq 0 $ }{
+            $R \gets R - X_i \widetilde{B}_i$
+          }
+          \EndIf
+        \EndFor
+      \doWhile{ DG $( X, Y, \widetilde{\beta}, \lambda ) > \mathcal{D}$ }\\
+  \end{algorithmic}
+  \Return $\widetilde{\beta}$
+\end{algorithm}
+\FloatBarrier
+
+\FloatBarrier
+\begin{algorithm}[!htbp]
   \caption{Coordinate Descent with standardized data}
   \begin{algorithmic}[1]
   \Statex
@@ -213,13 +245,13 @@ Of particular note is the scaled residual computation, which when written down n
 
 \begin{center}
 $ r \gets \frac{ X_i^T\left( Y - X_{-i} \widetilde{\beta}_{-i}\right) }{ \LTwoSqr{ X_i } } $.
-\begin{center}
+\end{center}
 
 Which we can re-write as,
 
 \begin{center}
 $ r \gets \frac{ X_i^T Y }{ \LTwoSqr{ X_i } } - \frac{ X_i^T X_{-i} }{ \LTwoSqr{ X_i } } \widetilde{\beta}_{-i}$.
-\begin{center}
+\end{center}
 
 Note that since the design matrix $X$ and the vector of predictors $Y$ are fixed,
  the terms $ \frac{ X_i^T Y }{ \LTwoSqr{ X_i } } $ and $\frac{ X_i^T X_{-i} }{ \LTwoSqr{ X_i } }$

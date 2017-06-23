@@ -1,0 +1,38 @@
+Testing Procedure for Solvers:
+
+1) Generate Synthetic Data
+	- Intercept free model
+	- Deal with normalization ( somehow )
+
+2) Pick an identical stopping criterion
+	- Different solvers use different stopping criteria
+	- Need to compare using identical criterion
+
+3) Generate 'gold standard' Beta-tilde using boring solver ( BFGS, CGD, etc )
+	- Generate figure of merit describing difference between gold-standard and solver under test
+	- Possible figure of merit: || Beta_solver - Beta_gold ||_2 / || Beta_gold ||_2
+
+4) Run Multiple Tests
+	- Run many ( 100? ) identical tests and generate mean of relative error standard deviation
+
+5) Examine composite test results
+	- Mean and standard deviation of relative error both need to be 'small'
+
+Testing Procedure for FOS w/ Solver Under Test
+
+1) Generate Synthetic Data
+	- Intercept free model
+	- Deal with normalization ( somehow )
+
+2) Generate Support using BFGS method
+	- This support will be considered 'gold standard'
+
+3) Generate Support using solver under test
+
+4) Compare 'gold standard' to solver under test
+	- Generate Hamming distance between supports
+	- Hamming distance of zero indicates validated solver
+
+5) Run Multiple Tests
+	- Run many ( 100? ) identical tests and generate mean and standard deviation of Hamming distance
+	- Mean and standard deviation of 0 is required for validation

@@ -419,4 +419,142 @@ would be written as:
 \end{algorithm}
 \FloatBarrier
 
+\FloatBarrier
+\begin{algorithm}[!htbp]
+  \caption{DP ( Dual Point ) }
+  \begin{algorithmic}[1]
+  \Statex
+  \Input\tikzmark{a}
+  \Statex $X \in \mathbb{R}^{n \times p} $ \Comment{ The design matrix }
+  \Statex $Y \in \mathbb{R}^n$  \Comment{ The vector of predictors }
+  \Statex $\beta \in \mathbb{R}^p$  \Comment{ Current $\beta$ }
+  \Statex $\lambda \in \mathbb{R}$  \Comment{ Grid element }\tikzmark{b}
+    \State $R \gets Y - X \beta $
+    % \State $f_{\beta} \gets \LTwoSqr{ \epsilon } + \lambda \LOne{ \beta }$\Comment{Primal Objective function}
+    \State $\alpha \gets \frac{1}{ \LInf{ X^TR } }$
+    \State $s \gets \min \{ \max \{ \frac{Y^TR}{\lambda\LTwoSqr{R}}, -\alpha \}, \alpha \}$
+    % \State $\nu \gets sR$
+    % \State $d_{\nu} \gets \frac{1}{4} \lambda^2 \LTwoSqr{ \widetilde{\nu} } - \LTwoSqr{ Y }$\Comment{Dual Objective function}
+  \end{algorithmic}
+  \Return $sR$
+\end{algorithm}
+\FloatBarrier
+
+\FloatBarrier
+\begin{algorithm}[!htbp]
+  \caption{DG2 ( Duality Gap for Problem~\ref{eq:lasso_half} ) }
+  \begin{algorithmic}[1]
+  \Statex
+  \Input\tikzmark{a}
+  \Statex $X \in \mathbb{R}^{n \times p} $ \Comment{ The design matrix }
+  \Statex $Y \in \mathbb{R}^n$  \Comment{ The vector of predictors }
+  \Statex $\beta \in \mathbb{R}^p$  \Comment{ Current primal point }
+  \Statex $\nu \in \mathbb{R}^n$  \Comment{ Current dual point }
+  \Statex $\lambda \in \mathbb{R}$  \Comment{ Grid element }\tikzmark{b}
+    \State $f_{\beta} \gets \frac{1}{2}\LTwoSqr{ Y - X \beta } + \lambda \LOne{ \beta }$\Comment{Primal Objective function}
+    \State $d_{\nu} \gets \frac{1}{2} \LTwoSqr{Y} - \frac{\lambda^2}{2}\LTwoSqr{\nu - \frac{Y}{\lambda}} $\Comment{Dual Objective function}
+  \end{algorithmic}
+  \Return $f_{\beta} - d_{\nu}$
+\end{algorithm}
+\FloatBarrier
+
+\FloatBarrier
+\begin{algorithm}[!htbp]
+  \caption{SAS ( Safe Active Set ) }
+  \begin{algorithmic}[1]
+  \Statex
+  \Input\tikzmark{a}
+  \Statex $X \in \mathbb{R}^{n \times p} $ \Comment{ The design matrix }
+  \Statex $c \in \mathbb{R}^n$  \Comment{ Center of the ball }
+  \Statex $r \geq 0$  \Comment{ Radius of the ball }\tikzmark{b}
+  \State $\mathcal{A} \gets \emptyset$ \Comment{ Initialize Active Set With Empty Set}
+  \For{ $j\in\{1,\ldots,p\}$}
+    \If{ $|X_j^Tc|+r\|X_j\|_2 \geq 1$}
+       \State $\mathcal{A}\gets \mathcal{A} \cup \{j\}$
+    \EndIf
+  \EndFor
+    \end{algorithmic}
+  \Return $\mathcal{A}$
+\end{algorithm}
+\FloatBarrier
+
+\FloatBarrier
+\begin{algorithm}[!htbp]
+  \caption{CDSR (Coordinate Descent With Lazy Evaluation and Screening Rule) \label{alg:cd_sr}}
+  \begin{algorithmic}[1]
+  \Statex
+  \Input\tikzmark{k} 
+  \Statex $X \in \mathbb{R}^{n \times p} $ \Comment{ The design matrix }
+  \Statex $Y \in \mathbb{R}^n$  \Comment{ The vector of predictors }
+  \Statex $\beta \in \mathbb{R}^p$  \Comment{ Starting vector }
+  \Statex $\lambda \in \mathbb{R}$  \Comment{ Grid element }
+  \Statex $\mathcal{D} \in \mathbb{R}$  \Comment{ Duality gap target }\tikzmark{l}
+    \State $\widetilde{\beta} \gets \beta$ \Comment{ Make a copy of $\beta$ }
+    \State $R \gets Y - X \widetilde{\beta}$ \Comment{ Initialize Intermediary Residual }
+    \State $\mathcal{A} \gets \{1,\ldots,p\}$ \Comment{ Initialize Active Set }
+      \Do
+      \State $\nu \gets \text{DP}(X_{\mathcal{A}},Y, \widetilde{\beta}_{\mathcal{A}}, \lambda)$ \Comment{ Dual point }
+      \State $\mathcal{G} \gets \text{DG2}(X_{\mathcal{A}},Y, \widetilde{\beta}_{\mathcal{A}}, \nu, \lambda)$ \Comment{ Duality gap } 
+      \State $\mathcal{A} \gets \text{SAS}(X, \nu, \mathcal{G})$ \Comment{ Safe Active Set }
+        \For{ $i \in \mathcal{A}$ }
+          \State $t \gets \frac{ \lambda }{ \LTwoSqr{ X_i } }$ \Comment{ Scale grid element by norm of the i'th column of design matrix }
+          \If{ $ \widetilde{\beta}_i \neq 0 $ }{
+            $R \gets R + X_i \widetilde{\beta}_i$
+          }
+          \EndIf
+          \State $\widetilde{\beta}_i \gets \tau \left( \frac{X_i^T R}{ \LTwoSqr{ X_i } }, t \right)$ \Comment{ Update the i'th element of Beta }
+          \If{ $ \widetilde{\beta}_i \neq 0 $ }{
+            $R \gets R - X_i \widetilde{\beta}_i$
+          }
+          \EndIf
+        \EndFor
+        \State $\widetilde{\beta}_{\mathcal{A}^c}=0$ \Comment{ Set to 0 coefficients not in $\mathcal{A}$ }
+      \doWhile{ $\mathcal{G} > \mathcal{D}$ }\\
+  \end{algorithmic}
+  \Return $\widetilde{\beta}$
+\end{algorithm}
+\FloatBarrier
+
+Note that Algorithm~\ref{alg:cd_sr} solves the problem
+\begin{equation}\label{eq:lasso_half}
+\arg\min_{\beta\in\mathbb{R}^p}\frac{1}{2}\LTwoSqr{Y-X\beta} + \lambda\LOne{\beta}
+\end{equation}
+
+\FloatBarrier
+\begin{algorithm}[!htbp]
+  \caption{FOS With Screening Rule}
+  \begin{algorithmic}[1]
+  \Statex
+  \Input\tikzmark{k}
+  \Statex $X \in \mathbb{R}^{n \times p} $ \Comment{ The design matrix }
+  \Statex $Y \in \mathbb{R}^n$  \Comment{ The vector of predictors }
+  % \Statex $\beta \in \mathbb{R}^p$  \Comment{ Starting vector }
+  % \Statex $L_0 \in \mathbb{R}$  \Comment{ Initial Lipschitz constant, used by backtracking line search }
+  \Statex $M \in \mathbb{N}$  \Comment{ Number of grid elements }
+  % \Statex $\eta \in \mathbb{R}$  \Comment{ Step size when updating Lipschitz constant }
+  \Statex $C > 0$
+  \Statex $\gamma > 0$\tikzmark{l}
+    \State $\widetilde{X} \gets \frac{1}{\sigma_X}\left( X - \mu_X \right)$ \Comment{Normalize X to mean 0 and standard deviation 1.}
+    \State $\widetilde{Y} \gets \frac{1}{\sigma_Y} \left( Y - \mu_Y \right)$ \Comment{Normalize Y.}
+    \State $\Lambda \gets \lambda$GRID$( X, Y, M )$ \Comment{Initialize grid elements}
+    \State $\beta_s \in \mathbb{R}^{ p \times M } \gets 0_{p,M}$ \Comment{Initialize matrix of Betas to zero matrix}
+    \State $statsCont \gets true$
+    \State $statsIt \gets 1$
+      \While { statsCont $\And$ ( statsIt $< M$ ) }
+        \State $statsIt \gets statsIt + 1$
+        % \State $\widetilde{\beta} \gets \beta_{k-1}$ \Comment{Initialize old beta vector with the k - 1'th Column of the Betas matrix.}
+        % \State $r_{statsIt} \gets \Lambda_k$ \Comment{ Extract the k'th grid element. }
+        \State $\mathcal{D} \gets DGT( \gamma, C, \Lambda_{statsIt}, n )$ \Comment{ Duality gap target}
+          \If{ $ DG( X, Y, \beta_{statsIt}, \Lambda_{statsIt} ) \leq \mathcal{D}$}
+            \State $\beta_{statsIt} \gets \beta_{statsIt-1}$
+          \Else
+            \State $\beta_{statsIt} \gets \text{CDSR}( X, Y, \beta_{statsIt-1}, \Lambda_{statsIt}/2, \mathcal{D}/2 )$
+          \EndIf
+          \State $statsCont \gets$ SCC $( C, statsIt, \Lambda_{statsIt}, \Lambda, X, \beta_s )$
+      \EndWhile
+  \end{algorithmic}
+  \Return $\beta_{statsIt-1}, \Lambda_{statsIt}, statsIt$
+\end{algorithm}
+\FloatBarrier
+
 \end{document}

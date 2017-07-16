@@ -8,9 +8,14 @@
 \doTocEntry\tocloa{7}{\csname a:TocLink\endcsname{1}{x1-8r7}{}{\ignorespaces Coordinate Descent with duality gap convergence criteria}}{algorithm}\relax 
 \doTocEntry\tocloa{8}{\csname a:TocLink\endcsname{1}{x1-9r8}{}{\ignorespaces Coordinate Descent with Lazy Evaluation}}{algorithm}\relax 
 \doTocEntry\tocloa{9}{\csname a:TocLink\endcsname{1}{x1-10r9}{}{\ignorespaces Coordinate Descent with standardized data}}{algorithm}\relax 
-\doTocEntry\tocloa{10}{\csname a:TocLink\endcsname{1}{x1-11r10}{}{\ignorespaces Coordinate Descent with minimal data copying}}{algorithm}\relax 
+\doTocEntry\tocloa{10}{\csname a:TocLink\endcsname{1}{x1-11r10}{}{\ignorespaces Coordinate Descent with Minimal Data Copying}}{algorithm}\relax 
 \doTocEntry\tocloa{11}{\csname a:TocLink\endcsname{1}{x1-12r11}{}{\ignorespaces FISTA with backtracking line search and duality gap convergence criteria}}{algorithm}\relax 
 \doTocEntry\tocloa{12}{\csname a:TocLink\endcsname{1}{x1-13r12}{}{\ignorespaces  $\lambda $GRID }}{algorithm}\relax 
 \doTocEntry\tocloa{13}{\csname a:TocLink\endcsname{1}{x1-14r13}{}{\ignorespaces  SCC: Stats Continutation Condition }}{algorithm}\relax 
 \doTocEntry\tocloa{14}{\csname a:TocLink\endcsname{1}{x1-15r14}{}{\ignorespaces FOS}}{algorithm}\relax 
+\doTocEntry\tocloa{15}{\csname a:TocLink\endcsname{1}{x1-16r15}{}{\ignorespaces DP ( Dual Point ) }}{algorithm}\relax 
+\doTocEntry\tocloa{16}{\csname a:TocLink\endcsname{1}{x1-17r16}{}{\ignorespaces DG2 ( Duality Gap for Problem\nobreakspace  {}1\hbox {} ) }}{algorithm}\relax 
+\doTocEntry\tocloa{17}{\csname a:TocLink\endcsname{1}{x1-18r17}{}{\ignorespaces SAS ( Safe Active Set ) }}{algorithm}\relax 
+\doTocEntry\tocloa{18}{\csname a:TocLink\endcsname{1}{x1-19r18}{}{\ignorespaces CDSR (Coordinate Descent With Lazy Evaluation and Screening Rule) }}{algorithm}\relax 
+\doTocEntry\tocloa{19}{\csname a:TocLink\endcsname{1}{x1-21r19}{}{\ignorespaces FOS With Screening Rule}}{algorithm}\relax 
 \par 

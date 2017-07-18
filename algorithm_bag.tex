@@ -495,7 +495,7 @@ would be written as:
       \Do
       \State $\nu \gets \text{DP}(X_{\mathcal{A}},Y, \widetilde{\beta}_{\mathcal{A}}, \lambda)$ \Comment{ Dual point }
       \State $\mathcal{G} \gets \text{DG2}(X_{\mathcal{A}},Y, \widetilde{\beta}_{\mathcal{A}}, \nu, \lambda)$ \Comment{ Duality gap } 
-      \State $\mathcal{A} \gets \text{SAS}(X, \nu, \mathcal{G})$ \Comment{ Safe Active Set }
+      \State $\mathcal{A} \gets \text{SAS}(X, \nu, \sqrt{\frac{2}{\lambda^2}\mathcal{G}})$ \Comment{ Safe Active Set }
         \For{ $i \in \mathcal{A}$ }
           \State $t \gets \frac{ \lambda }{ \LTwoSqr{ X_i } }$ \Comment{ Scale grid element by norm of the i'th column of design matrix }
           \If{ $ \widetilde{\beta}_i \neq 0 $ }{

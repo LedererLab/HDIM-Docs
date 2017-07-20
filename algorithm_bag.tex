@@ -492,10 +492,14 @@ would be written as:
     \State $\widetilde{\beta} \gets \beta$ \Comment{ Make a copy of $\beta$ }
     \State $R \gets Y - X \widetilde{\beta}$ \Comment{ Initialize Intermediary Residual }
     \State $\mathcal{A} \gets \{1,\ldots,p\}$ \Comment{ Initialize Active Set }
-      \Do
+    \State $optimCont \gets true$ 
+      \While{ optimCont }
       \State $\nu \gets \text{DP}(X_{\mathcal{A}},Y, \widetilde{\beta}_{\mathcal{A}}, \lambda)$ \Comment{ Dual point }
       \State $\mathcal{G} \gets \text{DG2}(X_{\mathcal{A}},Y, \widetilde{\beta}_{\mathcal{A}}, \nu, \lambda)$ \Comment{ Duality gap } 
       \State $\mathcal{A} \gets \text{SAS}(X, \nu, \sqrt{\frac{2}{\lambda^2}\mathcal{G}})$ \Comment{ Safe Active Set }
+      \If{ $\mathcal{G} \leq \mathcal{D}$ }
+      	\State $optimCont \gets false$
+      \Else
         \For{ $i \in \mathcal{A}$ }
           \State $t \gets \frac{ \lambda }{ \LTwoSqr{ X_i } }$ \Comment{ Scale grid element by norm of the i'th column of design matrix }
           \If{ $ \widetilde{\beta}_i \neq 0 $ }{
@@ -506,10 +510,11 @@ would be written as:
           \If{ $ \widetilde{\beta}_i \neq 0 $ }{
             $R \gets R - X_i \widetilde{\beta}_i$
           }
-          \EndIf
+          \EndIf  
         \EndFor
+        \EndIf
         \State $\widetilde{\beta}_{\mathcal{A}^c}=0$ \Comment{ Set to 0 coefficients not in $\mathcal{A}$ }
-      \doWhile{ $\mathcal{G} > \mathcal{D}$ }\\
+      \EndWhile
   \end{algorithmic}
   \Return $\widetilde{\beta}$
 \end{algorithm}
@@ -536,7 +541,7 @@ Note that Algorithm~\ref{alg:cd_sr} solves the problem
   \Statex $\gamma > 0$\tikzmark{l}
     \State $\widetilde{X} \gets \frac{1}{\sigma_X}\left( X - \mu_X \right)$ \Comment{Normalize X to mean 0 and standard deviation 1.}
     \State $\widetilde{Y} \gets \frac{1}{\sigma_Y} \left( Y - \mu_Y \right)$ \Comment{Normalize Y.}
-    \State $\Lambda \gets \lambda$GRID$( X, Y, M )$ \Comment{Initialize grid elements}
+    \State $\Lambda \gets \lambda$GRID$( \widetilde{X}, \widetilde{Y}, M )$ \Comment{Initialize grid elements}
     \State $\beta_s \in \mathbb{R}^{ p \times M } \gets 0_{p,M}$ \Comment{Initialize matrix of Betas to zero matrix}
     \State $statsCont \gets true$
     \State $statsIt \gets 1$
@@ -544,16 +549,12 @@ Note that Algorithm~\ref{alg:cd_sr} solves the problem
         \State $statsIt \gets statsIt + 1$
         % \State $\widetilde{\beta} \gets \beta_{k-1}$ \Comment{Initialize old beta vector with the k - 1'th Column of the Betas matrix.}
         % \State $r_{statsIt} \gets \Lambda_k$ \Comment{ Extract the k'th grid element. }
-        \State $\mathcal{D} \gets DGT( \gamma, C, \Lambda_{statsIt}, n )$ \Comment{ Duality gap target}
-          \If{ $ DG( X, Y, \beta_{statsIt}, \Lambda_{statsIt} ) \leq \mathcal{D}$}
-            \State $\beta_{statsIt} \gets \beta_{statsIt-1}$
-          \Else
-            \State $\beta_{statsIt} \gets \text{CDSR}( X, Y, \beta_{statsIt-1}, \Lambda_{statsIt}/2, \mathcal{D}/2 )$
-          \EndIf
-          \State $statsCont \gets$ SCC $( C, statsIt, \Lambda_{statsIt}, \Lambda, X, \beta_s )$
+        \State $\mathcal{D} \gets DGT( \gamma, C, \Lambda_{statsIt}, n )$ \Comment{ Duality gap target}          
+        \State $\beta_{statsIt} \gets \text{CDSR}( \widetilde{X}, \widetilde{Y}, \beta_{statsIt-1}, \Lambda_{statsIt}/2, \mathcal{D}/2 )$
+        \State $statsCont \gets$ SCC $( C, statsIt, \Lambda_{statsIt}, \Lambda, X, \beta_s )$
       \EndWhile
   \end{algorithmic}
-  \Return $\beta_{statsIt-1}, \Lambda_{statsIt}, statsIt$
+  \Return $\beta_{statsIt-1}, \Lambda_{statsIt-1}, statsIt$
 \end{algorithm}
 \FloatBarrier
 
